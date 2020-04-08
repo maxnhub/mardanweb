@@ -1,0 +1,9 @@
+.Select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & select {
+    margin-bottom: 20px;
+  }
+}
