@@ -13,7 +13,7 @@ class Main extends React.Component {
 
   render() {
     return <div className={classes.Main}>
-      <h1>About (components)</h1>
+      <h1>Components</h1>
       <form className={classes.Main_form}>
         <RadioButton />
         <Checkbox />

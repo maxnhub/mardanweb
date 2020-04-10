@@ -46,16 +46,14 @@ class App extends React.Component {
               />
             </div>
           </Route>
-          <Route path="/home">
+          <Route path="/users">
             <Users data-url={dataUrl}/>
           </Route>
-          <Route path="/about">
+          <Route path="/components">
             <Main />
           </Route>
-          <Route path="/services"> 
-            <Route path="/movies" component={Movies} /> 
-            <Route path="/movies/:id" component={Movie} /> 
-          </Route>
+          <Route path="/services" component={Movies} />
+          <Route path="/movies/:id" component={Movie} />
           <Redirect to="/" />
         </Switch>
       </div>

@@ -25,12 +25,7 @@ class Menu extends React.Component {
   }
   
   render() { 
-    // let menus = ['Home',
-    //   'About',
-    //   'Services',
-    //   'Portfolio',
-    //   'Contact us']
-    
+
     return (
       <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

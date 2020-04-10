@@ -8,12 +8,26 @@ export function fetchMovies(movies) {
 }
 
 
-export function fetchMovie(index) {
+export function fetchMovie(movie) {
   return {
       type: types.FETCH_MOVIE,
-      index
+      movie
   };
 }
 
+export function clearMovies(movies) {
+    return {
+        type: types.CLEAR_MOVIES,
+        movies
+    };
+}
+
+
+export function clearMovie(movie) {
+    return {
+        type: types.CLEAR_MOVIE,
+        movie
+    };
+}
 
 

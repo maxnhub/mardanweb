@@ -26,6 +26,7 @@
 .description {
   width: 100%;
   margin: 10px;
+  text-align: center;
 }
 
 .title {
@@ -65,7 +66,7 @@
 @media (min-width: 667px) {
   .movie {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
     max-height: 100%;

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as RouterLink } from 'react-router-dom';
 
 class Link extends React.Component {
   
@@ -9,9 +10,9 @@ class Link extends React.Component {
     .trim()
     .replace(' ', '-')
     return <React.Fragment>
-      <a className="nav-link" href="#" href={url}>
+      <RouterLink className="nav-link" to={url}>
         {this.props.label}
-      </a>
+      </RouterLink>
       <br />
     </React.Fragment>
   }

@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import movies from '../../movies.json'
-import styles from './movies.css'
+import styles from './Movies.module.scss'
 import axios from 'axios';
-import { fetchMovies } from '../../store/actions/movies'
+import { fetchMovies, clearMovies } from '../../store/actions/movies'
 
 
 class Movies extends React.Component {
@@ -27,9 +27,13 @@ class Movies extends React.Component {
     });
   }
 
-  // componentWillMount() {
-  //   this.props.fetchMovies(movies)
-  // }
+  componentWillUnmount() {
+    const { clearMovies, movies } = this.props;
+    if (movies) {
+      clearMovies(movies);
+    }
+    
+  }
 
   render() {
     const {
@@ -38,7 +42,6 @@ class Movies extends React.Component {
       params = {}
     } = this.props
     
-
     return (
       <div className={styles.movies}>
         <div className={params.id ? styles.listHidden : styles.list}>
@@ -58,13 +61,17 @@ class Movies extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return state;
+const mapStateToProps = (state) => {  // по сути это не state, а store... и данные приходят из стора, почему пишется state не понятно
+  return {
+    ...state.movies, // если редюсеров несколько (movies, users и т.д.) нужно обзательно ссылаться на state - state.movies
+    user: state.users.users[0], // если бы мне нужен был кусок из юзеров, можно было бы на него сослаться таким образом, т.к. в сторе лежит всё, что мы туда отправляем
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMovies: (movies) => dispatch(fetchMovies(movies))
+    fetchMovies: (movies) => dispatch(fetchMovies(movies)),
+    clearMovies: (movies) => dispatch(clearMovies(movies)),
   };
 };
 
